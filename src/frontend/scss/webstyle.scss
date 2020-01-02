@@ -1,0 +1,125 @@
+:root {
+    --bg-light: #0e2a33;
+    --bg: #0a2027;
+    --bg-dark: #09171b;
+
+    --grey-light: #fefefe;
+    --grey: #efefef;
+    --grey-dark: #b8c0d1;
+
+    --primary: #0c82d1;
+    --primary-dark: #0a6daf;
+
+    --border-radius: 0.5rem;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    background-color: var(--bg);
+    font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+    font-size: 17px;
+    line-height: 1.3em;
+    letter-spacing: 1px;
+    color: var(--grey);
+}
+
+main {
+    width: 720px;
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    padding: 2rem 0;
+}
+
+textarea {
+    width: 100%;
+    min-height: 395px;
+    padding: 2rem;
+    resize: none;
+    font: inherit;
+    letter-spacing: inherit;
+    background-color: var(--bg-light);
+    color: inherit;
+    border: 0;
+    border-radius: var(--border-radius);
+    box-shadow:
+        0 2.4px 7.2px rgba(0, 0, 0, 0.048),
+        0 5.8px 15.6px rgba(0, 0, 0, 0.062),
+        0 12.3px 27.8px rgba(0, 0, 0, 0.071),
+        0 35px 65px rgba(0, 0, 0, 0.1);
+}
+
+.content-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    &.is-visible {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.note-date {
+    margin-left: 0.25rem;
+    color: var(--grey-dark);
+}
+
+.note-title {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.5rem;
+    background-color: transparent;
+    border: 0;
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-size: 2rem;
+}
+
+button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    line-height: 1em;
+    border: 0;
+    border-radius: var(--border-radius);
+    background-color: var(--primary);
+    color: var(--grey-light);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    font: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
+    box-shadow:
+        0 1.3px 10px rgba(0, 0, 0, 0.045),
+        0 10px 80px rgba(0, 0, 0, 0.09);
+
+    &:hover {
+        background-color: var(--primary-dark);
+    }
+}
+
+.save-button {
+    margin-bottom: 0.5rem;
+    display: none;
+
+    &.is-visible {
+        display: initial;
+    }
+}
