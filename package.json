@@ -1,22 +1,23 @@
 {
     "name": "permidea",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "description": "A handy and permanent way of noting down ideas that spring to mind.",
     "scripts": {
         "build:backend": "npx tsc -p tsconfig.backend.json",
         "build:sass": "npx sass src/frontend/scss/webstyle.scss build/frontend/css/webstyle.css",
         "build:static": "npx copy src/static/* build/frontend",
-        "build:frontend": "npx tsc -p tsconfig.frontend.json && npm run build:static && npm run build:sass",
+        "build:frontend": "npx webpack && npm run build:static && npm run build:sass",
         "start": "node build/backend/app.js",
         "watch:sass": "npx sass --watch src/frontend/scss:build/frontend/css"
     },
-    "author": "",
+    "author": "William Baker",
     "license": "ISC",
     "dependencies": {
+        "@types/dateformat": "^3.0.1",
         "@types/express": "^4.17.2",
         "@types/shortid": "0.0.29",
         "body-parser": "^1.19.0",
+        "dateformat": "^3.0.3",
         "express": "^4.17.1",
         "promise-mysql": "^4.1.1",
         "shortid": "^2.2.15"
@@ -24,6 +25,9 @@
     "devDependencies": {
         "copy": "^0.3.2",
         "sass": "^1.24.0",
-        "typescript": "^3.7.4"
+        "ts-loader": "^6.2.1",
+        "typescript": "^3.7.4",
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.10"
     }
 }
