@@ -13,7 +13,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
 
-        <script src="/js/index.js"></script>
+        <script src="/js/index.js"async defer></script>
     </head>
     <body>
         <main>
@@ -22,9 +22,9 @@
                 <small class="note-date"></small>
                 <button class="save-button">Permanently Save Note</button>
             </div>
-            <textarea placeholder="Your note goes here!"></textarea>
+            <textarea class="note-content" placeholder="Your note goes here!"></textarea>
             <div class="content-loading">
-                Loading
+                <img width="80" height="80" src="/img/loading.svg" />
             </div>
         </main>
     </body>
