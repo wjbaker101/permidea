@@ -56,10 +56,8 @@ textarea {
     border: 0;
     border-radius: var(--border-radius);
     box-shadow:
-        0 2.4px 7.2px rgba(0, 0, 0, 0.048),
-        0 5.8px 15.6px rgba(0, 0, 0, 0.062),
-        0 12.3px 27.8px rgba(0, 0, 0, 0.071),
-        0 35px 65px rgba(0, 0, 0, 0.1);
+        0 2px 3px rgba(0, 0, 0, 0.3),
+        3px 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .content-loading {
