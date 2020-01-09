@@ -4,9 +4,13 @@ const BASE_URL = '/api';
 
 export const NoteClient = {
 
-    async getNote(noteID: string): Promise<INote> {
+    async getNote(noteID: string): Promise<INote | Error> {
         const response = await fetch(`${BASE_URL}/note/${noteID}`);
         const result = await response.json();
+
+        if (result.error) {
+            return new Error(result.error);
+        }
 
         return {
             ...result,
@@ -18,7 +22,7 @@ export const NoteClient = {
             noteID: string,
             title: string,
             content: string,
-            creationDate: Date): Promise<INote> {
+            creationDate: Date): Promise<INote | Error> {
 
         const response = await fetch(`${BASE_URL}/note/${noteID}`, {
             method: 'PUT',
@@ -35,13 +39,17 @@ export const NoteClient = {
 
         const result = await response.json();
 
+        if (result.error) {
+            return new Error(result.error);
+        }
+
         return {
             ...result,
             creationDate: new Date(result.creationDate),
         }
     },
 
-    async createNote(title: string, content: string): Promise<INote> {
+    async createNote(title: string, content: string): Promise<INote | Error> {
         const response = await fetch(`${BASE_URL}/note`, {
             method: 'POST',
             headers: {
@@ -56,6 +64,10 @@ export const NoteClient = {
         });
 
         const result = await response.json();
+
+        if (result.error) {
+            return new Error(result.error);
+        }
 
         return {
             ...result,

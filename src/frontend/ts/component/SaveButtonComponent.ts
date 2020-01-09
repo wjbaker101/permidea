@@ -17,11 +17,15 @@ export const SaveButtonComponent = (elementSelector: string) => {
                 return;
             }
 
-            const result = await NoteClient.createNote(
+            const createdNote = await NoteClient.createNote(
                     currentNote.title,
                     currentNote.content);
 
-            window.location.hash = result.noteID;
+            if (createdNote instanceof Error) {
+                return;
+            }
+
+            window.location.hash = createdNote.noteID;
         },
     };
 

@@ -40,6 +40,13 @@ const init = async () => {
     noteDateComponent.innerHTML = '';
 
     const newNote = await NoteClient.getNote(noteID);
+
+    if (newNote instanceof Error) {
+        loadingIconComponent.classList.remove('is-visible');
+
+        return;
+    }
+
     StateService.getState().currentNote = newNote;
 
     if (newNote !== null) {
