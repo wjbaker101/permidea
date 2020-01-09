@@ -6,7 +6,7 @@ export const SaveButtonComponent = (elementSelector: string) => {
             = document.querySelector(elementSelector);
 
     const events = {
-        async onClick() {
+        async onClick(): Promise<void> {
             const currentNote = StateService.getState().currentNote;
 
             if (currentNote.title.length === 0) {

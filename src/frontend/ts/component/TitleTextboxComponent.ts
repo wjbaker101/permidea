@@ -6,7 +6,7 @@ export const TitleTextboxComponent = (elementSelector: string) => {
             = document.querySelector(elementSelector);
 
     const events = {
-        onInput() {
+        onInput(): void {
             StateService.getState().currentNote.title = titleTextbox.value;
 
             NoteService.updateNote();

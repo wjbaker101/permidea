@@ -6,7 +6,7 @@ export const ContentTextboxComponent = (elementSelector: string) => {
             = document.querySelector(elementSelector);
 
     const events = {
-        onKeyDown(event: KeyboardEvent) {
+        onKeyDown(event: KeyboardEvent): boolean {
             if (event.keyCode === 9) {
                 const tab = '    ';
 
@@ -22,7 +22,7 @@ export const ContentTextboxComponent = (elementSelector: string) => {
             }
         },
 
-        onInput() {
+        onInput(): void {
             contentTextbox.style.height = '1px';
             contentTextbox.style.height = `${contentTextbox.scrollHeight}px`;
 
