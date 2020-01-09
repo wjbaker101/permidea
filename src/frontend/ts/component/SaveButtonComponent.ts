@@ -9,8 +9,6 @@ export const SaveButtonComponent = (elementSelector: string) => {
         async onClick() {
             const currentNote = StateService.getState().currentNote;
 
-            console.log(currentNote);
-
             if (currentNote.title.length === 0) {
                 return;
             }
@@ -19,7 +17,9 @@ export const SaveButtonComponent = (elementSelector: string) => {
                 return;
             }
 
-            const result: { noteID: string } = await NoteClient.createNote(currentNote.title, currentNote.content);
+            const result = await NoteClient.createNote(
+                    currentNote.title,
+                    currentNote.content);
 
             window.location.hash = result.noteID;
         },

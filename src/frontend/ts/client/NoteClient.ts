@@ -9,9 +9,7 @@ export const NoteClient = {
         const result = await response.json();
 
         return {
-            noteID: result.noteID,
-            title: result.title,
-            content: result.content,
+            ...result,
             creationDate: new Date(result.creationDate),
         }
     },
@@ -35,7 +33,12 @@ export const NoteClient = {
             }),
         });
 
-        return await response.json();
+        const result = await response.json();
+
+        return {
+            ...result,
+            creationDate: new Date(result.creationDate),
+        }
     },
 
     async createNote(title: string, content: string): Promise<INote> {
@@ -52,6 +55,11 @@ export const NoteClient = {
             }),
         });
 
-        return await response.json();
+        const result = await response.json();
+
+        return {
+            ...result,
+            creationDate: new Date(result.creationDate),
+        }
     },
 };

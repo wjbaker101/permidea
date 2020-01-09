@@ -5,10 +5,11 @@
     "scripts": {
         "build:backend": "npx tsc -p tsconfig.backend.json",
         "build:sass": "npx sass src/frontend/scss/webstyle.scss build/frontend/css/webstyle.css",
-        "build:static": "npx copy src/static/** build/frontend",
+        "build:static": "npx copyfiles -f \"src/static/**/*.*\" \"build/frontend\"",
         "build:frontend": "npx webpack && npm run build:static && npm run build:sass",
         "start": "node build/backend/app.js",
-        "watch:sass": "npx sass --watch src/frontend/scss:build/frontend/css"
+        "watch:sass": "npx sass --watch src/frontend/scss:build/frontend/css",
+        "watch:webpack": "npx webpack --watch"
     },
     "author": "William Baker",
     "license": "ISC",
@@ -23,7 +24,7 @@
         "shortid": "^2.2.15"
     },
     "devDependencies": {
-        "copy": "^0.3.2",
+        "copyfiles": "^2.1.1",
         "sass": "^1.24.0",
         "ts-loader": "^6.2.1",
         "typescript": "^3.7.4",

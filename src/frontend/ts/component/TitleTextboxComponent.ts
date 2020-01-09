@@ -1,4 +1,3 @@
-import { NoteClient } from '../client/NoteClient';
 import { NoteService } from '../service/NoteService';
 import { StateService } from '../service/StateService';
 
