@@ -55,6 +55,9 @@ const init = async () => {
         contentTextboxComponent.value = newNote.content;
         titleTextboxComponent.value = newNote.title;
         noteDateComponent.innerHTML = DateUtils.formatDate(newNote.creationDate);
+
+        contentTextboxComponent.style.height = '1px';
+        contentTextboxComponent.style.height = `${contentTextboxComponent.scrollHeight}px`;
     }
 
     loadingIconComponent.classList.remove('is-visible');
