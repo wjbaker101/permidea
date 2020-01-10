@@ -6,7 +6,7 @@ export const NoteClient = {
 
     async getNote(noteID: string): Promise<INote | Error> {
         const response = await fetch(`${BASE_URL}/note/${noteID}`);
-        const result = await response.json();
+        const { result } = await response.json();
 
         if (result.error) {
             return new Error(result.error);
@@ -37,7 +37,7 @@ export const NoteClient = {
             }),
         });
 
-        const result = await response.json();
+        const { result } = await response.json();
 
         if (result.error) {
             return new Error(result.error);
@@ -63,7 +63,7 @@ export const NoteClient = {
             }),
         });
 
-        const result = await response.json();
+        const { result } = await response.json();
 
         if (result.error) {
             return new Error(result.error);
