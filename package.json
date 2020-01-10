@@ -21,7 +21,8 @@
         "dateformat": "^3.0.3",
         "express": "^4.17.1",
         "promise-mysql": "^4.1.1",
-        "shortid": "^2.2.15"
+        "shortid": "^2.2.15",
+        "ts-bus": "^2.1.0"
     },
     "devDependencies": {
         "copyfiles": "^2.1.1",

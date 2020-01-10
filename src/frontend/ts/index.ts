@@ -3,6 +3,7 @@ import { StateService } from './service/StateService';
 import { DateUtils } from './util/DateUtils';
 
 import { ContentTextboxComponent } from './component/ContentTextboxComponent';
+import { ErrorMessageComponent } from './component/ErrorMessageComponent';
 import { LoadingIconComponent } from './component/LoadingIconComponent';
 import { NoteDateComponent } from './component/NoteDateComponent';
 import { SaveButtonComponent } from './component/SaveButtonComponent';
@@ -14,6 +15,7 @@ const init = async () => {
     const contentTextboxComponent = ContentTextboxComponent('.note-content');
     const noteDateComponent = NoteDateComponent('.note-date');
     const loadingIconComponent = LoadingIconComponent('.content-loading');
+    ErrorMessageComponent('.error-message-container');
 
     const noteID = window.location.hash.substring(1);
 

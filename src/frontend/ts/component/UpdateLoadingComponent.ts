@@ -1,5 +1,5 @@
 export const UpdateLoadingComponent = (elementSelector: string) => {
-    const loadingIcon: HTMLInputElement
+    const loadingIcon: HTMLDivElement
             = document.querySelector(elementSelector);
 
     return loadingIcon;

@@ -1,5 +1,6 @@
 import { NoteClient } from '../client/NoteClient';
 import { StateService } from './StateService';
+import { EventService, Events } from './EventService';
 
 import { UpdateLoadingComponent } from '../component/UpdateLoadingComponent';
 
@@ -22,13 +23,20 @@ export const NoteService = {
 
             updateLoadingComponent.classList.add('is-visible');
 
-            await NoteClient.updateNote(
+            const updatedNote = await NoteClient.updateNote(
                     currentNote.noteID,
                     currentNote.title,
                     currentNote.content,
                     currentNote.creationDate);
 
             updateLoadingComponent.classList.remove('is-visible');
+
+            if (updatedNote instanceof Error) {
+                EventService.publish({
+                    type: Events.EVENT_ERROR_MESSAGE_SHOW,
+                    payload: 'Sorry, something went wrong updating your note.',
+                });
+            }
         }, 600);
     },
 };
